@@ -1,0 +1,7 @@
+package com.first.firstapplication.repositories;
+
+import com.first.firstapplication.model.Song;
+import org.springframework.data.repository.CrudRepository;
+
+public interface SongRepository extends CrudRepository<Song, Long> {
+}
