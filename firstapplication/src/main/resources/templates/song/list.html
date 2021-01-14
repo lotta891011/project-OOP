@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>SONGS</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Year</th>
+        </tr>
+        <!--/*@thymesVar id="song" type="com.first.firstapplication.commands.SongCommand"*/-->
+        <tr th:each="song : ${songs}">
+            <!--/*@thymesVar id="song" type="com.first.firstapplication.commands.SongCommand"*/-->
+            <td th:text="${song.id}">123</td>
+            <!--/*@thymesVar id="song" type="com.first.firstapplication.commands.SongCommand"*/-->
+            <td th:text="${song.title}">A great pretender</td>
+            <td th:text="${song.publisher}">EMI</td>
+            <td th:text="${song.year}">1988</td>
+            <td>
+            <a href="#" th:href="@{'/song/' + ${song.id} + '/show'}" style="margin-right: 5px;">Pokaż</a>
+            <a href="#" th:href="@{'/song/' + ${song.id} + '/delete'}"style="margin-right: 5px;">Usuń </a>
+            <a href="#" th:href="@{'/song/' + ${song.id} + '/edit'}" role="button" class="btn btn-success">Edytuj</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#" th:href="@{'/song/new'}" role="button" class="btn btn-success">Dodaj</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
