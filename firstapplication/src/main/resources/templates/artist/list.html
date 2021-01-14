@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All artists</title>
+</head>
+<body>
+<h1>All artists</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Nick</th>
+    </tr>
+    <!--/*@thymesVar id="artists" type="com.first.firstapplication.commands.ArtistCommand"*/-->
+    <tr th:each="artist : ${artists}">
+        <!--/*@thymesVar id="artist" type="com.first.firstapplication.commands.ArtistCommand"*/-->
+        <td th:text="${artist.id}">123</td>
+        <!--/*@thymesVar id="artist" type="com.first.firstapplication.commands.ArtistCommand"*/-->
+        <td th:text="${artist.firstName}">Mister</td>
+        <td th:text="${artist.lastName}">Kononowicz</td>
+        <td th:text="${artist.nick}">Destroyer</td>
+
+        <td>
+            <a href="#" th:href="@{'/artist/' + ${artist.id} + '/show'}" style="margin-right: 5px;">Pokaż</a>
+            <a href="#" th:href="@{'/artist/' + ${artist.id} + '/songs'}" style="margin-right: 5px;">Piosenki</a>
+            <a href="#" th:href="@{'/artist/' + ${artist.id} + '/delete'}"style="margin-right: 5px;">Usuń </a>
+            <a href="#" th:href="@{'/artist/' + ${artist.id} + '/edit'}" role="button" class="btn btn-success">Edytuj</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="#" th:href="@{'/artist/new'}" role="button" class="btn btn-success">Dodaj</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
